@@ -1,25 +1,24 @@
-#include<stdio.h>
-#include<math.h>
-#include<string.h>
+#include<stdio.h> 
+#include<conio.h> 
+#include<ctype.h>
 int main()
 {
-	char w[100];
-	int c=0;
-	printf("Enter the string:");
-	scanf("%s",w);
-	for(int i=0;i<strlen(w);i++)
+	char a[10]; 
+	int flag, i=1; 
+	printf("\n Enter an identifier:"); 
+	gets(a);
+	if(isalpha(a[0]))
+		flag=1; 
+	else
+		printf("\n Not a valid identifier");
+		while(a[i]!='\0')
 	{
-		if((w[0]>='a' and w[0]<='z')or (w[0]>='A' and w[0]<='Z') or ( w[0]=='_'))
+		if(!isdigit(a[i])&&!isalpha(a[i]))
 		{
-			c=1;
-		}
+			flag=0; 
+			break;
+		} i++;
 	}
-	if(c==0)
-	{
-		printf("Not a valid identifier");
-	}
-	else if(c==1)
-	{
-		printf("Valid identifier");
-	}
+	if(flag==1)
+		printf("\n Valid identifier"); 
 }
